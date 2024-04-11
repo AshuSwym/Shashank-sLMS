@@ -30,6 +30,7 @@ export async function POST(req: Request) {
       return new NextResponse(`Webhook Error: Missing metadata`, { status: 400 });
     }
 
+    console.log("Checkout Completed")
     await db.purchase.create({
       data: {
         courseId: courseId,
