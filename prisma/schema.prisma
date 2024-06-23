@@ -37,6 +37,15 @@ model Category {
   courses Course[]
 }
 
+model Feedback {
+  id String @id @default(uuid())
+  userId String
+  courseId String
+  email String
+  name String
+  feedback String
+}
+
 model Attachment {
   id String @id @default(uuid())
   name String

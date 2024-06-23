@@ -28,3 +28,23 @@ export async function POST(
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
+
+
+export async function GET(
+  req: Request) {
+  try{
+    const course = await db.course.findMany({
+      select: {
+        id: true,
+        title: true,
+        imageUrl : true,
+        description : true
+      }
+    })
+    return NextResponse.json(course);
+  }
+  catch(error){
+    console.log("[COURSE_ID]", error);
+    return new NextResponse("Internal Error", { status: 500 });
+  }
+}
